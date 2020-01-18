@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 use Phalcon\Mvc\Controller;
 
@@ -11,8 +12,6 @@ class SignupController extends Controller
 
     public function registerAction()
     {
-	    print_r("register action");
-	    /*
         $user = new Users();
         $data = $this->request->getPost();
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
@@ -38,6 +37,5 @@ class SignupController extends Controller
                 echo $message->getMessage(), "<br/>";
             }
         }
-*/
     }
 }

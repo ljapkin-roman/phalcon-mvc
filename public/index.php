@@ -4,7 +4,7 @@ use Phalcon\Di\FactoryDefault;
 use Phalcon\Loader;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\Application;
-use Phalcon\Url;
+use Phalcon\Mvc\Url;
 use Phalcon\Db\Adapter\Pdo\Mysql;
 
 // Define some absolute path constants to aid in locating resources
