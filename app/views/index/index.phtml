@@ -22,8 +22,8 @@ if ($users->count() > 0) {
         <tbody>
         <?php foreach ($users as $user) { ?>
             <tr>
-                <td><?php echo $user->id; ?></td>
-                <td><?php echo $user->name; ?></td>
+                <td><?php echo $user->user_id; ?></td>
+                <td><?php echo $user->firstname; ?></td>
                 <td><?php echo $user->email; ?></td>
             </tr>
         <?php } ?>
@@ -32,37 +32,3 @@ if ($users->count() > 0) {
     <?php
 }
 ?>
-<div class="page-header">
-    <h1>Congratulations!</h1>
-</div>
-<?php print_r($users->count()); ?>
-<h2> Form for user </h2>
-<form action="signup/register" method="post">
-
-      <label for="firstname">First name</label>
-      <input id="firstname" type="text" name="firstname" value="<?php echo $data['firstname']; ?>" required>
-      <?php if (isset($errors['firstname'])) { print_r($errors['firstname']);
-      } ?>
-
-      <label for="lastname">First name</label>
-      <input id="lastname" type="text" name="lastname" value="<?php echo $data['lastname']; ?>" required>
-      <?php if (isset($errors['lastname'])) { print_r($errors['lastname']);
-      } ?>
-
-
-      <label for="email">email</label>
-      <input id="email" type="email" name="email" value="<?php echo $data['email']; ?>"required>
-
-      <label for="password">password</label>
-      <input id="password" type="password" name="password" value="<?php echo $data['password']; ?>"required>
-
-    <input type="radio" id="user"
-     name="status" value="user">
-    <label for="contactChoice1">User</label>
-
-    <input type="radio" id="admin"
-     name="status" value="admin">
-    <label for="contactChoice2">admin</label>
-
-      <input type="submit" value="Save">
-    </form>
