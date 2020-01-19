@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 use Phalcon\Mvc\Controller;
 
@@ -6,6 +7,7 @@ class SignupController extends Controller
 {
     public function indexAction()
     {
+	    print_r("index action");
     }
 
     public function registerAction()
