@@ -6,6 +6,8 @@ use Phalcon\Mvc\View;
 use Phalcon\Mvc\Application;
 use Phalcon\Url;
 use Phalcon\Db\Adapter\Pdo\Mysql;
+use Phalcon\Session\Manager;
+use Phalcon\Session\Adapter\Stream;
 
 use Phalcon\Mvc\Router;
 
@@ -75,6 +77,24 @@ $di->set('router', function() {
     return $router;
 });
  */
+
+$container->set(
+    'session',
+    function () {
+        $session = new Manager();
+        $files   = new Stream(
+            [
+                'savePath' => '/tmp',
+            ]
+        );
+        $session->setAdapter($files);
+
+        $session->start();
+
+        return $session;
+    }
+);
+
 $application = new Application($container);
 
 try {
