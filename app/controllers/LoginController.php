@@ -1,6 +1,8 @@
 <?php
 
 use Phalcon\Mvc\Controller;
+use Phalcon\Assets\Asset\Css;
+
 
 class LoginController extends Controller
 {
@@ -17,6 +19,11 @@ class LoginController extends Controller
     }
 
     public function indexAction()
+    {
+        $this->assets->addCss('css/main.css');
+    }
+
+    public function otherAction()
     {
     }
 
