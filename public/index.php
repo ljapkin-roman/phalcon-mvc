@@ -7,6 +7,12 @@ use Phalcon\Mvc\Application;
 use Phalcon\Url;
 use Phalcon\Db\Adapter\Pdo\Mysql;
 
+use Phalcon\Mvc\Router;
+
+$router = new Router();
+
+
+
 // Define some absolute path constants to aid in locating resources
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
@@ -56,6 +62,19 @@ $container->set(
         );
     }
 );
+/*
+$di->set('router', function() {
+
+    $router = new Phalcon\Mvc\Router();
+
+    $router->add("/address/:params", array(
+        'controller' => 'products',
+        'params' => 1,
+    ));
+
+    return $router;
+});
+ */
 $application = new Application($container);
 
 try {

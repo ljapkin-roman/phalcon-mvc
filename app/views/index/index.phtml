@@ -12,6 +12,7 @@ if ($users->count() > 0) {
             <th>#</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Address</th>
         </tr>
         </thead>
         <tfoot>
@@ -25,6 +26,7 @@ if ($users->count() > 0) {
                 <td><?php echo $user->user_id; ?></td>
                 <td><?php echo $user->firstname; ?></td>
                 <td><?php echo $user->email; ?></td>
+                <td><a href="/address/show/<?php echo $user->user_id ?>"> Manage address </a></td>
             </tr>
         <?php } ?>
         </tbody>
