@@ -4,7 +4,7 @@ async function deleteAddress(event) {
     let recordDB = 'http://localhost:80/address/delete/' + address_id;
     let response = await fetch(recordDB);
     let result = await response.json();
-    console.log(response);
+    console.log(result);
 }
 for (let button of buttons) {
     button.addEventListener("click", deleteAddress);

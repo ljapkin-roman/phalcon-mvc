@@ -10,8 +10,21 @@ class AddressController extends Controller
     
     public function deleteAction($address_id)
     {
-        $data['status'] = 'result';
-        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        $this->view->disable();
+        $address =  Addresses::findFirst($address_id);
+        if ($address !== false) {
+            if ($address->delete() === false) {
+                echo "К сожалению, мы не можем удалить робота прямо сейчас: \n";
+
+                $messages = $address->getMessages();
+
+                foreach ($messages as $message) {
+                    echo $message, "\n";
+                }
+            } else {
+                echo 'Робот был успешно удален!';
+            }
+        }
     }
     
     public function showAction($user_id)
