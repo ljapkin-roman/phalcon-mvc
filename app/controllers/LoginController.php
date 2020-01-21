@@ -20,7 +20,6 @@ class LoginController extends Controller
 
     public function indexAction()
     {
-        $this->assets->addCss('css/main.css');
     }
 
     public function otherAction()

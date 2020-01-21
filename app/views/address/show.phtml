@@ -1,3 +1,8 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Стили</title>
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+ </head>
 <h3> Address show </h3>
 
 <?php
@@ -28,7 +33,7 @@ if ($addresses->count() > 0) {
                 <td><?php echo $address->postcode; ?></td>
                 <td><?php echo $address->region; ?></td>
                 <td><?php echo $address->street; ?></td>
-                <td> <button> delere </button> </td>
+                <td> <button class="delete" id="<?php echo $address->address_id ?>"> delete </button> </td>
             </tr>
         <?php } ?>
         </tbody>
@@ -66,3 +71,4 @@ if ($addresses->count() > 0) {
       } ?>
       <input type="submit" value="Save">
     </form>
+<script src="/js/main.js"></script>

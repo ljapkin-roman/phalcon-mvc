@@ -8,6 +8,12 @@ class AddressController extends Controller
     {
     }
     
+    public function deleteAction($address_id)
+    {
+        $data['status'] = 'result';
+        echo json_encode($data, JSON_UNESCAPED_UNICODE);
+    }
+    
     public function showAction($user_id)
     {
         $this->view->user = Users::findFirst(
