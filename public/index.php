@@ -8,6 +8,8 @@ use Phalcon\Url;
 use Phalcon\Db\Adapter\Pdo\Mysql;
 use Phalcon\Session\Manager;
 use Phalcon\Session\Adapter\Stream;
+use Phalcon\Flash\Direct as FlashDirect;
+use Phalcon\Flash\Session as FlashSession;
 
 use Phalcon\Mvc\Router;
 
@@ -32,6 +34,20 @@ $loader->registerDirs(
 $loader->register();
 
 $container = new FactoryDefault();
+$container->set(
+    'flash',
+    function () {
+        return new FlashDirect();
+    }
+);
+
+// Set up the flash session service
+$container->set(
+    'flashSession',
+    function () {
+        return new FlashSession();
+    }
+);
 
 $container->set(
     'view',

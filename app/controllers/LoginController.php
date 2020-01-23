@@ -42,9 +42,10 @@ class LoginController extends Controller
 
                 $this->_registerSession($user);
 
-                $this->flash->success(
-                    'Welcome ' . $user->name
+                $this->flashSession->success(
+                    'Welcome ' . $user->firstname
                 );
+                $this->response->redirect('/');
 
 
                 return $this->dispatcher->forward(
@@ -55,16 +56,11 @@ class LoginController extends Controller
                 );
             }
                 
-            $this->flash->error(
+            $this->flashSession->error(
                 'Wrong email/password'
             );
+            $this->response->redirect('/login');
         }
 
-        return $this->dispatcher->forward(
-            [
-                'controller' => 'session',
-                'action'     => 'index',
-            ]
-        );
     }
 }
