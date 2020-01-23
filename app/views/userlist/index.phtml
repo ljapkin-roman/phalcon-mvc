@@ -1,0 +1,45 @@
+<?php
+
+echo "<h1>Hello!</h1>";
+
+
+echo $this->tag->linkTo(["signup", "Sign Up Here!", 'class' => 'btn btn-primary']);
+echo $this->tag->linkTo(["login", "Login", 'class' => 'btn btn-info offset-md-1']);
+
+echo $this->session->auth['status'];
+
+if ($this->session->auth['status'] === 'admin')
+{
+    if ($users->count() > 0) {
+        ?>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <td colspan="3">Users quantity: <?php echo $users->count(); ?></td>
+            </tr>
+            </tfoot>
+            <tbody>
+            <?php foreach ($users as $user) { ?>
+                <tr>
+                    <td><?php echo $user->user_id; ?></td>
+                    <td><?php echo $user->firstname; ?></td>
+                    <td><?php echo $user->email; ?></td>
+                    <td><a href="/address/show/<?php echo $user->email ?>"> Manage address </a></td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+        <?php
+    }
+} else {
+    echo 'Вы должны быть администратором что бы увидеть список пользователей';
+}
+?>

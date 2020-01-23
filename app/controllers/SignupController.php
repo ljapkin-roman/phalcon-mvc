@@ -25,6 +25,14 @@ class SignupController extends Controller
         $success = $user->save();
 
         if ($success) {
+            $this->session->set(
+                'auth',
+                [
+                    'id' =>$user->user_id,
+                    'email' =>$user->email,
+                    'status' => $user->user_type,
+                ]
+            );
             echo "Thank you for registering!";
         } else {
             echo "Sorry, the following problems were generated: ";

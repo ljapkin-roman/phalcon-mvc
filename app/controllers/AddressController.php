@@ -27,16 +27,26 @@ class AddressController extends Controller
         }
     }
     
-    public function showAction($user_id)
+    public function showAction($email)
     {
-        $this->view->user = Users::findFirst(
-            "user_id='{$user_id}'"
+
+
+        $user = Users::findFirst(
+            "email='{$email}'"
         );
 
+        $this->view->user = $user; 
+
+        $user_id = $user->user_id;
 
         $this->view->addresses = Addresses::find(
             "user_id='{$user_id}'"
         );
+    }
+
+    public function allAction()
+    {
+        $this->view->allAddress = Addresses::find();
     }
 
 

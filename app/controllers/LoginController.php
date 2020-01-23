@@ -22,9 +22,6 @@ class LoginController extends Controller
     {
     }
 
-    public function otherAction()
-    {
-    }
 
     public function startAction()
     {
