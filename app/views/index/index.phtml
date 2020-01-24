@@ -5,6 +5,7 @@ echo "<h1>Hello!</h1>";
 $this->flashSession->output();
 echo $this->tag->linkTo(["signup", "Sign Up Here!", 'class' => 'btn btn-primary']);
 
+echo $this->tag->linkTo(["login", "Login", 'class' => 'btn btn-info offset-md-1']);
 if ($users->count() > 0) {
     ?>
     <table class="table table-bordered table-hover">

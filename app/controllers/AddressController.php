@@ -47,6 +47,7 @@ class AddressController extends Controller
     public function allAction()
     {
         $this->view->allAddress = Addresses::find();
+        $this->view->users = Users::find();
     }
 
 

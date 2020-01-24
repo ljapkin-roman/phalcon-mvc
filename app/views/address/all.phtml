@@ -1,6 +1,12 @@
-
+<select class="chosen-select" id="selectUser" onchange="getAddressUser(this)">
+    <option value=""> Choose email of user</option>
+    <?php 
+    foreach ($users as $user) {
+        print_r("<option value='{$user->email}'> {$user->email} </option>");
+    }
+    ?>
+</select>;
 <?php
-
 
 if ($allAddress->count() > 0) {
     ?>

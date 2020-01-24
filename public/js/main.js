@@ -10,3 +10,12 @@ for (let button of buttons) {
     button.addEventListener("click", deleteAddress);
 }
 
+$(".chosen-select").chosen();
+
+let selectUser = document.getElementById("selectUser");
+
+function getAddressUser(user)
+{
+    let email = user.options[user.selectedIndex].innerHTML;
+    return email;
+}
