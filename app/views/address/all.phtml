@@ -1,40 +1,24 @@
 <select class="chosen-select" id="selectUser" onchange="getAddressUser(this)">
-    <option value=""> Choose email of user</option>
+    <option value="">all</option>
     <?php 
     foreach ($users as $user) {
         print_r("<option value='{$user->email}'> {$user->email} </option>");
     }
     ?>
 </select>;
-<?php
 
-if ($allAddress->count() > 0) {
-    ?>
+<p id="forExperement"> Experement </p>
+
     <table class="table table-bordered table-hover">
         <thead class="thead-light">
-        <tr>
-            <th>City</th>
-            <th>Region</th>
-            <th>Street</th>
-            <th>email</th>
-        </tr>
-        </thead>
-        <tfoot>
-        <tr>
-            <td colspan="3">Users quantity: <?php echo $allAddress->count(); ?></td>
-        </tr>
-        </tfoot>
-        <tbody>
-        <?php foreach ($allAddress as $address) { ?>
             <tr>
-                <td><?php echo $address->city; ?></td>
-                <td><?php echo $address->region; ?></td>
-                <td><?php echo $address->street; ?></td>
-                <td><a href="/address/show/<?php print_r($address->users->email); ?>"><?php echo $address->users->email; ?> </a></td>
+                <th>City</th>
+                <th>Region</th>
+                <th>Street</th>
+                <th>Postcode</th>
+                <th>Email</th>
             </tr>
-        <?php } ?>
+        </thead>
+        <tbody id="parentBody">
         </tbody>
     </table>
-    <?php
-}
-?>
