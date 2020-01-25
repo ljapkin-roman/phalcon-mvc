@@ -4,6 +4,7 @@ use Phalcon\Mvc\Controller;
 
 class SignupController extends Controller
 {
+
     public function indexAction()
     {
     }
@@ -49,7 +50,6 @@ class SignupController extends Controller
                     $message->getMessage()
                 );
             }
-            $this->response->redirect('/signup');
         }
     }
 }
