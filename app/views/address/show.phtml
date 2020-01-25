@@ -1,0 +1,75 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Стили</title>
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+ </head>
+<h3> Address show </h3>
+<?php print_r($addresses->street); ?>
+
+<?php
+
+echo "<h1>Hello!</h1>";
+
+
+if ($addresses->count() > 0) {
+    ?>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+            <th>City</th>
+            <th>Postcode</th>
+            <th>Region</th>
+            <th>Street</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <td colspan="3">Users quantity: <?php echo $addresses->count(); ?></td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <?php foreach ($addresses as $address) { ?>
+            <tr>
+                <td><?php echo $address->city; ?></td>
+                <td><?php echo $address->postcode; ?></td>
+                <td><?php echo $address->region; ?></td>
+                <td><?php echo $address->street; ?></td>
+                <td> <button class="delete" id="<?php echo $address->address_id ?>"> delete </button> </td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+    <?php
+}
+?>
+<p> Add address to the user </p>
+<form action="/address/register" method="post">
+
+      <label for="city">City</label>
+      <input id="city" type="text" name="city" value="<?php echo $data['firstname']; ?>" required>
+      <?php if (isset($errors['city'])) { print_r($errors['city']);
+      } ?>
+
+      <label for="postcode">Postcode</label>
+      <input id="postcode" type="text" name="postcode" value="<?php echo $data['postcode']; ?>" required>
+      <?php if (isset($errors['postcode'])) { print_r($errors['postcode']);
+      } ?>
+
+
+      <label for="region">Region</label>
+      <input id="region" type="text" name="region" value="<?php echo $data['region']; ?>" required>
+      <?php if (isset($errors['region'])) { print_r($errors['region']);
+      } ?>
+
+
+      <label for="street">Street</label>
+      <input id="street" type="text" name="street" value="<?php echo $data['region']; ?>" required>
+      <?php if (isset($errors['street'])) { print_r($errors['street']);
+      } ?>
+
+      <input id="user_id" type="hidden" name="user_id" value="<?php echo $user->user_id; ?>" required>
+      <?php if (isset($errors['user_id'])) { print_r($errors['user_id']);
+      } ?>
+      <input type="submit" value="Save">
+    </form>
+<script src="/js/main.js"></script>

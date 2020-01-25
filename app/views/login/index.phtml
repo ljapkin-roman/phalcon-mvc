@@ -1,0 +1,13 @@
+<?php print_r($this->assets->outputCss()); ?>
+<?php echo $this->flashSession->output(); ?>
+<form action="/login/start" method="post">
+
+      <label for="email">email</label>
+      <input id="email" type="email" name="email" value="<?php echo $data['email']; ?>"required>
+
+      <label for="password">password</label>
+      <input id="password" type="password" name="password" value="<?php echo $data['password']; ?>"required>
+
+
+      <input type="submit" value="Save">
+    </form>
