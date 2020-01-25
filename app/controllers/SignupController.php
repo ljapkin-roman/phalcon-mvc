@@ -50,6 +50,7 @@ class SignupController extends Controller
                     $message->getMessage()
                 );
             }
+            return true;
         }
     }
 }
