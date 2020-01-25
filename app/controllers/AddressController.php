@@ -8,7 +8,7 @@ class AddressController extends Controller
     {
     }
     
-    public function alldataAction($email=null)
+    public function getAction($email=null)
     {
         if (!$email) {
             $addresses = Addresses::find();

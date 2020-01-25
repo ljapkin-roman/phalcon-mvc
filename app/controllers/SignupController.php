@@ -33,15 +33,23 @@ class SignupController extends Controller
                     'status' => $user->user_type,
                 ]
             );
-            echo "Thank you for registering!";
+            $this->flashSession->success(
+                'Welcome ' . $user->firstname .'</br>'.
+                "Thank you for registering!"
+            );
+            $this->response->redirect('/');
         } else {
-            echo "Sorry, the following problems were generated: ";
-
+            $this->flashSession->success(
+                "Sorry, the following problems were generated: "
+            );
            $messages = $user->getMessages();
 
             foreach ($messages as $message) {
-                echo $message->getMessage(), "<br/>";
+                $this->flashSession->success(
+                    $message->getMessage()
+                );
             }
+            $this->response->redirect('/signup');
         }
     }
 }

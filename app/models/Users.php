@@ -10,4 +10,6 @@ class Users extends Model
     public $user_type;
     public $created_at;
     public $user_id;
+
+    
 }

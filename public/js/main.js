@@ -16,7 +16,7 @@ let selectUser = document.getElementById("selectUser");
 
 async function createTable(email='')
 {
-    let url = 'http://localhost:80/address/alldata/' + email;
+    let url = 'http://localhost:80/address/get/' + email;
     url = url.replace(/\s/g, '');
     let response = await fetch(url);
     let listAddress = await response.json();
