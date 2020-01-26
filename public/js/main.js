@@ -1,7 +1,12 @@
 let buttons = document.getElementsByClassName('delete');
+
+let href = window.location.href;
+let arr = href.split('/');
+let hostName = arr[0] + "//" + arr[2];
+
 async function deleteAddress(event) {
     let address_id = event.target.id;
-    let recordDB = 'http://localhost:80/address/delete/' + address_id;
+    let recordDB = hostName + '/address/delete/' + address_id;
     let response = await fetch(recordDB);
     let result = await response.json();
     console.log(result);
@@ -16,7 +21,7 @@ let selectUser = document.getElementById("selectUser");
 
 async function createTable(email='')
 {
-    let url = 'http://localhost:80/address/get/' + email;
+    let url = hostName + '/address/get/' + email;
     url = url.replace(/\s/g, '');
     let response = await fetch(url);
     let listAddress = await response.json();
