@@ -4,7 +4,8 @@ let href = window.location.href;
 let arr = href.split('/');
 let hostName = arr[0] + "//" + arr[2];
 
-async function deleteAddress(event) {
+async function deleteAddress(event)
+{
     let address_id = event.target.id;
     let recordDB = hostName + '/address/delete/' + address_id;
     let response = await fetch(recordDB);

@@ -31,9 +31,11 @@ class RegisterForm extends Form
         $name = new Text('name');
         $name->setLabel('Your Full Name');
         $name->setFilters(['striptags', 'string']);
-        $name->addValidators([
+        $name->addValidators(
+            [
             new PresenceOf(['message' => 'Name is required']),
-        ]);
+            ]
+        );
 
         $this->add($name);
 
@@ -43,9 +45,11 @@ class RegisterForm extends Form
         $name = new Text('username');
         $name->setLabel('Username');
         $name->setFilters(['alpha']);
-        $name->addValidators([
+        $name->addValidators(
+            [
             new PresenceOf(['message' => 'Please enter your desired user name']),
-        ]);
+            ]
+        );
 
         $this->add($name);
 
@@ -55,10 +59,12 @@ class RegisterForm extends Form
         $email = new Text('email');
         $email->setLabel('E-Mail');
         $email->setFilters('email');
-        $email->addValidators([
+        $email->addValidators(
+            [
             new PresenceOf(['message' => 'E-mail is required']),
             new Email(['message' => 'E-mail is not valid']),
-        ]);
+            ]
+        );
 
         $this->add($email);
 
@@ -67,9 +73,11 @@ class RegisterForm extends Form
          */
         $password = new Password('password');
         $password->setLabel('Password');
-        $password->addValidators([
+        $password->addValidators(
+            [
             new PresenceOf(['message' => 'Password is required']),
-        ]);
+            ]
+        );
 
         $this->add($password);
 
@@ -78,9 +86,11 @@ class RegisterForm extends Form
          */
         $repeatPassword = new Password('repeatPassword');
         $repeatPassword->setLabel('Repeat Password');
-        $repeatPassword->addValidators([
+        $repeatPassword->addValidators(
+            [
             new PresenceOf(['message' => 'Confirmation password is required']),
-        ]);
+            ]
+        );
 
         $this->add($repeatPassword);
     }

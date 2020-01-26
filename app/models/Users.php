@@ -14,38 +14,38 @@ class Users extends Model
     public $user_type;
     public $created_at;
     public $user_id;
-     public function validation()
-        {
-            $validator = new Validation();
+    public function validation()
+    {
+           $validator = new Validation();
 
-            $validator->add(
-                'user_type',
-                new PresenceOf(
-                    [
-                        'message' => 'You must be choose type user ',
-                    ]
-                )
-            );
+        $validator->add(
+            'user_type',
+            new PresenceOf(
+                [
+                       'message' => 'You must be choose type user ',
+                   ]
+            )
+        );
             
-            $validator->add(
-                'email',
-                new EmailValidator(
-                    [
-                        'message' => 'Invalid email given',
-                    ]
-                )
-            );
+        $validator->add(
+            'email',
+            new EmailValidator(
+                [
+                       'message' => 'Invalid email given',
+                   ]
+            )
+        );
 
-            $validator->add(
-                'email',
-                new UniquenessValidator(
-                    [
-                        'message' => 'Sorry, The email was registered by another user',
-                    ]
-                )
-            );
+        $validator->add(
+            'email',
+            new UniquenessValidator(
+                [
+                       'message' => 'Sorry, The email was registered by another user',
+                   ]
+            )
+        );
             
-            return $this->validate($validator);
-        }
+           return $this->validate($validator);
+    }
         
 }

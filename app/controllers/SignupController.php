@@ -8,8 +8,7 @@ class SignupController extends Controller
     public function indexAction()
     {
         $user = new Users();
-        if ($this->request->getPost())
-        {
+        if ($this->request->getPost()) {
             $dataPOST = $this->request->getPost();
             $dataPOST['password'] = password_hash($dataPOST['password'], PASSWORD_DEFAULT);
             $user->assign(
@@ -35,7 +34,7 @@ class SignupController extends Controller
                 $this->flashSession->error(
                     "Sorry, the following problems were generated: "
                 );
-               $messages = $user->getMessages();
+                $messages = $user->getMessages();
 
                 foreach ($messages as $message) {
                     $this->flashSession->success(
