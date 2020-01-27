@@ -8,28 +8,28 @@ class AddressController extends Controller
     {
     }
     
-    public function alldataAction($email=null)
+    public function getAction($email=null)
     {
         if (!$email) {
             $addresses = Addresses::find();
         }
         else {
             $addresses = Addresses::query()
-            ->leftJoin("Users", "users.user_id = Addresses.user_id", "users")
-            ->where("users.email = '{$email}'")
-            ->execute();
+                ->leftJoin("Users", "users.user_id = Addresses.user_id", "users")
+                ->where("users.email = '{$email}'")
+                ->execute();
         }
 
-       $data = [];
-       foreach ($addresses as $address) {
+        $data = [];
+        foreach ($addresses as $address) {
             $data[$address->address_id]['street'] = $address->street ;
             $data[$address->address_id]['city'] = $address->city ;
             $data[$address->address_id]['region'] = $address->region ;
             $data[$address->address_id]['postcode'] = $address->postcode ;
             $data[$address->address_id]['owner'] = $address->users->email ;
-       } 
-       $this->view->disable();
-       print_r(json_encode($data, JSON_UNESCAPED_UNICODE));
+        } 
+        $this->view->disable();
+        print_r(json_encode($data, JSON_UNESCAPED_UNICODE));
     }
     
     public function deleteAction($address_id)
@@ -96,7 +96,7 @@ class AddressController extends Controller
         } else {
             echo "Sorry, the following problems were generated: ";
 
-           $messages = $address->getMessages();
+            $messages = $address->getMessages();
 
             foreach ($messages as $message) {
                 echo $message->getMessage(), "<br/>";

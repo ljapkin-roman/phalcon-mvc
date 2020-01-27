@@ -1,5 +1,6 @@
 <h2> Form for user </h2>
-<form action="/signup/register" method="post">
+<?php echo $this->flashSession->output(); ?>
+<form action="/signup" method="post">
 
       <label for="firstname">First name</label>
       <input id="firstname" type="text" name="firstname" value="<?php echo $data['firstname']; ?>" required>
@@ -19,11 +20,11 @@
       <input id="password" type="password" name="password" value="<?php echo $data['password']; ?>"required>
 
     <input type="radio" id="user"
-     name="status" value="user">
+     name="user_type" value="user">
     <label for="contactChoice1">User</label>
 
     <input type="radio" id="admin"
-     name="status" value="admin">
+     name="user_type" value="admin">
     <label for="contactChoice2">admin</label>
 
       <input type="submit" value="Save">

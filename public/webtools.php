@@ -14,17 +14,19 @@ use Phalcon\DevTools\Bootstrap;
 /**
  * @psalm-suppress MissingFile
  */
-include 'webtools.config.php';
-include PTOOLSPATH . '/bootstrap/autoload.php';
+require 'webtools.config.php';
+require PTOOLSPATH . '/bootstrap/autoload.php';
 
 /**
  * @psalm-suppress UndefinedConstant
  */
-$bootstrap = new Bootstrap([
+$bootstrap = new Bootstrap(
+    [
     'ptools_path' => PTOOLSPATH,
     'ptools_ip'   => PTOOLS_IP,
     'base_path'   => BASE_PATH,
-]);
+    ]
+);
 
 if (APPLICATION_ENV === ENV_TESTING) {
     return $bootstrap->run();

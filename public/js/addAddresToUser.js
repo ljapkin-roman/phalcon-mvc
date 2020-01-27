@@ -1,24 +1,7 @@
-let buttons = document.getElementsByClassName('delete');
 
 let href = window.location.href;
 let arr = href.split('/');
 let hostName = arr[0] + "//" + arr[2];
-
-async function deleteAddress(event)
-{
-    let address_id = event.target.id;
-    let recordDB = hostName + '/address/delete/' + address_id;
-    let response = await fetch(recordDB);
-    let result = await response.json();
-    console.log(result);
-}
-for (let button of buttons) {
-    button.addEventListener("click", deleteAddress);
-}
-
-$(".chosen-select").chosen();
-
-let selectUser = document.getElementById("selectUser");
 
 async function createTable(email='')
 {
@@ -45,14 +28,3 @@ function addRecord(table, key, address)
         tr.innerHTML = innerHtml;
         table.append(tr);
 }
-
-
-function getAddressUser(user)
-{
-    let email = user.options[user.selectedIndex].innerHTML;
-    if (email == 'all') {
-        email = '';
-    }
-    createTable(email);
-}
-

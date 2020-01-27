@@ -4,9 +4,10 @@ use Phalcon\Di\FactoryDefault;
 use Phalcon\Loader;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\Application;
-use Phalcon\Mvc\Url;
+use Phalcon\Url;//change from Phalcon\Url
 use Phalcon\Db\Adapter\Pdo\Mysql;
 use Phalcon\Session\Manager;
+//use Phalcon\Session\Adapter\Files as Manager; //add on miniPC
 use Phalcon\Session\Adapter\Stream;
 use Phalcon\Flash\Direct as FlashDirect;
 use Phalcon\Flash\Session as FlashSession;
@@ -103,7 +104,7 @@ $container->set(
                 'savePath' => '/tmp',
             ]
         );
-        $session->setAdapter($files);
+         $session->setAdapter($files);
 
         $session->start();
 
