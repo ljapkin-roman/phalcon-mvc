@@ -75,7 +75,7 @@ $container->set(
             [
                 'host'     => 'localhost',
                 'username' => 'roma',
-                'password' => 'taraNtul230678!',
+                'password' => 'secret!',
                 'dbname'   => 'phalcon',
             ]
         );
