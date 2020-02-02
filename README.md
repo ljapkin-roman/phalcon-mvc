@@ -1,6 +1,6 @@
 # Тестовое задание  Phalcon 
 
-- Само задание здесь ( [Задание] (https://docs.google.com/document/d/13x86wfH1DUjlS3N5Hv7ltPoTukPPIByKXziNsSyN7ZY/mobilebasic))
+- Само задание здесь ([Задание](https://docs.google.com/document/d/13x86wfH1DUjlS3N5Hv7ltPoTukPPIByKXziNsSyN7ZY/mobilebasic))
 - Использовал Phalcon 3.4.11 и Nginx 1.14.0, Mysql Ver 14.14 Distrib 5.7.28.
 
 # Подключение к базе данных 
